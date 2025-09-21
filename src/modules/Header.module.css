@@ -1,5 +1,15 @@
 header {
   background-color: orange;
   color: #fff;
-  padding: 15px 0px;
+}
+
+img {
+  max-width: 100px;
+  vertical-align: middle;
+}
+
+.title_style {
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 20px;
 }

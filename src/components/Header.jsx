@@ -6,7 +6,10 @@ const Header = () => {
       <header className="container-fluid">
         <div className="row">
           <div className="col-12">
-            <h1>Boolean Movies</h1>
+            <img src="./imgs/logo.png" alt="" />
+            <h2 className={`${styles.title_style} `}>
+              Booleanix: <span className="fst-italic">La tua videoteca</span>
+            </h2>
           </div>
         </div>
       </header>
