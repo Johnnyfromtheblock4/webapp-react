@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <Header />
-      <h1>Homepage</h1>
+
     </>
   );
 }
