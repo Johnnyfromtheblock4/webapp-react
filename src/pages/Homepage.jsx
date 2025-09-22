@@ -26,20 +26,7 @@ const Homepage = () => {
           <h2>Film di qualità</h2>
         </div>
         {movies.map((movie) => {
-          return (
-            <div className="col-12 col-md-6 col-lg-4" key={movie.id}>
-              <div className="card" style={{ width: "18rem" }}>
-                <img src={movie.image} className="card-img-top" alt="Movie" />
-                <div className="card-body">
-                  <h5 className="card-title">{movie.title}</h5>
-                  <p className="card-text">{movie.author}</p>
-                  <a href="#" className="btn btn-primary">
-                    Dettagli
-                  </a>
-                </div>
-              </div>
-            </div>
-          );
+          return <MovieCard key={movie.id} movie={movie} />;
         })}
       </div>
     </div>
