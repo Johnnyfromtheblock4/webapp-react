@@ -1,33 +1,29 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import MovieCard from "../components/MovieCard";
 
 const Homepage = () => {
-  // definisco le variabili di stato
   const [movies, setMovies] = useState([]);
 
-  // funzione che recupera i film attraverso la chiamta ajax
   const fetchMovies = () => {
     axios
       .get("http://localhost:3000/api/movies")
-      .then((resp) => {
-        setMovies(resp.data);
-      })
-      .catch((err) => console.log(err));
+      .then((resp) => setMovies(resp.data))
+      .catch((err) => console.error(err));
   };
 
-  // utilizzo useEffect per recuperare la lista dei film
   useEffect(fetchMovies, []);
 
   return (
     <div className="container my-5">
       <div className="row">
-        <div className="col-12 text-center">
+        <div className="col-12 text-center mb-4">
           <h1>Booleanix</h1>
           <h2>Film di qualità</h2>
         </div>
-        {movies.map((movie) => {
-          return <MovieCard key={movie.id} movie={movie} />;
-        })}
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
       </div>
     </div>
   );
