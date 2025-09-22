@@ -1,6 +1,23 @@
-import React from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const Homepage = () => {
+  // definisco le variabili di stato
+  cont[(movies, setMovies)] = useState([]);
+
+  // funzione che recupera i film attraverso la chiamta ajax
+  const fetchMovies = () => {
+    axios
+      .get("http://localhost:3000/api/movies")
+      .then((resp) => {
+        setMovies(resp.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  // utilizzo useEffect per recuperare la lista dei film
+  useEffect(fetchMovies, []);
+
   return (
     <div className="container my-5">
       <div className="row">
