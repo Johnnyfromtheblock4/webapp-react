@@ -8,6 +8,7 @@ const DetailMovie = () => {
   const navigate = useNavigate();
 
   const [movie, setMovie] = useState({});
+  const [totalMovies, setTotalMovies] = useState(0); 
 
   const fetchMovie = () => {
     axios
@@ -16,28 +17,47 @@ const DetailMovie = () => {
       .catch(() => navigate("/not-found", { replace: true }));
   };
 
+  const fetchTotalMovies = () => {
+    axios
+      .get(`http://localhost:3000/api/movies`)
+      .then((resp) => setTotalMovies(resp.data.length))
+      .catch((err) => console.error("Errore nel fetch totale:", err));
+  };
+
   const goNextPage = () => {
-    const page = parseInt(id) + 1;
-    navigate("/movie/" + page);
+    const currentId = parseInt(id);
+    let nextId = currentId + 1;
+    if (nextId > totalMovies) {
+      nextId = 1; 
+    }
+    navigate("/movie/" + nextId);
   };
 
   const goPrevPage = () => {
-    const page = parseInt(id) - 1;
-    navigate("/movie/" + page);
+    const currentId = parseInt(id);
+    let prevId = currentId - 1;
+    if (prevId < 1) {
+      prevId = totalMovies;
+    }
+    navigate("/movie/" + prevId);
   };
 
-  useEffect(fetchMovie, [id]);
+  useEffect(() => {
+    fetchMovie();
+    fetchTotalMovies();
+  }, [id]);
+
 
   return (
     <>
       <div className="container my-5">
         <div className="row">
           <div className="col-12">
-            <div className="detail-card d-flex">
+            <div className="detail-card">
               <div className="cover-image">
                 <img src={movie.image} alt={movie.title} />
               </div>
-              <div className="text-details ms-3">
+              <div className="text-details">
                 <h1 className="title">{movie.title}</h1>
                 <p className="abstract">{movie.abstract}</p>
                 <p className="genre">{movie.genre}</p>
@@ -54,7 +74,11 @@ const DetailMovie = () => {
                   >
                     <i className="fa-solid fa-caret-left"></i>
                   </button>
-                  <button className="succ-btn ms-2" onClick={goNextPage}>
+                  <button 
+                    className="succ-btn ms-2" 
+                    disabled={parseInt(id) === totalMovies && totalMovies > 0} 
+                    onClick={goNextPage}
+                  >
                     <i className="fa-solid fa-caret-right"></i>
                   </button>
                 </div>
