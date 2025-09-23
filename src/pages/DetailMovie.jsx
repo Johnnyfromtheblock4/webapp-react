@@ -85,7 +85,7 @@ const DetailMovie = () => {
             </div>
           </div>
           <div className="col-12 col-md-6 reviews mt-4">
-            <h2 className="my-2">Recensioni utenti:</h2>
+            <h2 className="my-2 reviews-title">Recensioni utenti:</h2>
             {movie.reviews && movie.reviews.length > 0 ? (
               movie.reviews.map((review) => (
                 <ReviewCard key={review.id} review={review} />

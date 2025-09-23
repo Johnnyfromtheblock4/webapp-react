@@ -6,6 +6,7 @@
   background-color: orange;
 }
 
-.review-card h3 {
+.reviews-title,
+.text-details .title {
   color: orange;
 }
