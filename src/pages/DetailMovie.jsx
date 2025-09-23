@@ -51,7 +51,7 @@ const DetailMovie = () => {
     <>
       <div className="container my-5">
         <div className="row">
-          <div className="col-12">
+          <div className="col-12 col-md-6">
             <div className="detail-card">
               <div className="cover-image">
                 <img src={movie.image} alt={movie.title} />
@@ -83,17 +83,16 @@ const DetailMovie = () => {
                 </div>
               </div>
             </div>
-
-            <div className="reviews mt-4">
-              <h2>Recensioni utenti:</h2>
-              {movie.reviews && movie.reviews.length > 0 ? (
-                movie.reviews.map((review) => (
-                  <ReviewCard key={review.id} review={review} />
-                ))
-              ) : (
-                <p>Nessuna recensione disponibile</p>
-              )}
-            </div>
+          </div>
+          <div className="col-12 col-md-6 reviews mt-4">
+            <h2 className="my-2">Recensioni utenti:</h2>
+            {movie.reviews && movie.reviews.length > 0 ? (
+              movie.reviews.map((review) => (
+                <ReviewCard key={review.id} review={review} />
+              ))
+            ) : (
+              <p>Nessuna recensione disponibile</p>
+            )}
           </div>
         </div>
       </div>

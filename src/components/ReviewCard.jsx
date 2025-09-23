@@ -3,8 +3,12 @@ const ReviewCard = ({ review }) => {
   return (
     <div className="review-card">
       <h3>{name}</h3>
-      <p>Voto: {vote}</p>
-      <p>{text}</p>
+      <p>
+        <span>Voto: {vote}</span>
+      </p>
+      <p>
+        <span>{text}</span>
+      </p>
     </div>
   );
 };

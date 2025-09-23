@@ -1,3 +1,11 @@
 .cover-image img {
   max-width: 300px;
 }
+
+.review-card span {
+  background-color: orange;
+}
+
+.review-card h3 {
+  color: orange;
+}
