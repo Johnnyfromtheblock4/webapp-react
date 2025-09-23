@@ -8,7 +8,7 @@ const DetailMovie = () => {
   const navigate = useNavigate();
 
   const [movie, setMovie] = useState({});
-  const [totalMovies, setTotalMovies] = useState(0); 
+  const [totalMovies, setTotalMovies] = useState(0);
 
   const fetchMovie = () => {
     axios
@@ -28,7 +28,7 @@ const DetailMovie = () => {
     const currentId = parseInt(id);
     let nextId = currentId + 1;
     if (nextId > totalMovies) {
-      nextId = 1; 
+      nextId = 1;
     }
     navigate("/movie/" + nextId);
   };
@@ -46,7 +46,6 @@ const DetailMovie = () => {
     fetchMovie();
     fetchTotalMovies();
   }, [id]);
-
 
   return (
     <>
@@ -74,9 +73,9 @@ const DetailMovie = () => {
                   >
                     <i className="fa-solid fa-caret-left"></i>
                   </button>
-                  <button 
-                    className="succ-btn ms-2" 
-                    disabled={parseInt(id) === totalMovies && totalMovies > 0} 
+                  <button
+                    className="succ-btn ms-2"
+                    disabled={parseInt(id) === totalMovies && totalMovies > 0}
                     onClick={goNextPage}
                   >
                     <i className="fa-solid fa-caret-right"></i>
@@ -92,9 +91,7 @@ const DetailMovie = () => {
                   <ReviewCard key={review.id} review={review} />
                 ))
               ) : (
-                <h4>
-                  <em>Non ci sono ancora recensioni per questo film</em>
-                </h4>
+                <p>Nessuna recensione disponibile</p>
               )}
             </div>
           </div>

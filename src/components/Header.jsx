@@ -10,8 +10,8 @@ const Header = () => {
           <h2 className={styles.title_style}>
             Booleanix: <span className="fst-italic">La tua videoteca</span>
           </h2>
-          <Link className="btn btn-secondary" to="/movies/create">
-            Aggiungi un nuovo libro
+          <Link className="btn btn-light" to="/movies/create">
+            Aggiungi un nuovo film
           </Link>
         </div>
       </div>

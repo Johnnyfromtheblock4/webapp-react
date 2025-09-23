@@ -1,1 +1,0 @@
-pathImage erratto
