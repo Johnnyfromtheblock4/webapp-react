@@ -5,11 +5,15 @@ const Header = () => {
   return (
     <header className="container-fluid">
       <div className="row">
-        <div className="col-12  d-flex justify-content-around align-items-center">
-          <img src="/imgs/logo.png" className={styles.logo} alt="Logo" />
+        <div className="col-12 d-flex justify-content-around align-items-center">
+          <Link to="/">
+            <img src="/imgs/logo.png" className={styles.logo} alt="Logo" />
+          </Link>
+
           <h2 className={styles.title_style}>
             Booleanix: <span className="fst-italic">La tua videoteca</span>
           </h2>
+
           <Link className="btn btn-light" to="/movies/create">
             Aggiungi recensione
           </Link>
