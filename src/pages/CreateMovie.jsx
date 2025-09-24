@@ -1,6 +1,15 @@
-import React from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const CreateMovie = () => {
+  // creo variabile di stato
+  const [formData, setFormData] = useState({
+    title: "",
+    director: "",
+    image: null,
+    abstract: "",
+  });
+
   return (
     <div className="container">
       <div className="row">
@@ -46,7 +55,7 @@ const CreateMovie = () => {
                   placeholder="Inserisci Immagine"
                 />
               </div>
-              <div className="col-12">
+              <div className="col-12 mt-2">
                 <label htmlFor="" className="form-label">
                   Plot
                 </label>
@@ -58,7 +67,7 @@ const CreateMovie = () => {
                 ></textarea>
               </div>
               <div className="col-12">
-                <button className="btn btn-warning" type="submit">
+                <button className="btn btn-warning mt-2" type="submit">
                   Aggiungi Film
                 </button>
               </div>
