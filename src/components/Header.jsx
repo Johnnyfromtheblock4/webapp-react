@@ -11,7 +11,7 @@ const Header = () => {
             Booleanix: <span className="fst-italic">La tua videoteca</span>
           </h2>
           <Link className="btn btn-light" to="/movies/create">
-            Aggiungi un nuovo film
+            Aggiungi recensione
           </Link>
         </div>
       </div>
