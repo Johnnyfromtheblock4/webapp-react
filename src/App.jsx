@@ -13,7 +13,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/movie/:id" element={<DetailMovie />} />
           <Route path="/movies/create" element={<CreateMovie />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/not-found" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

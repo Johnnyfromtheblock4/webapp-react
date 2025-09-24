@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
-  const { id, title, image, author } = movie;
+  const { id, title, image, director } = movie;
 
   return (
     <div className="col-12 col-md-6 col-lg-4">
