@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ReviewCard from "../components/ReviewCard";
+import { useLoader } from "../context/LoaderContext"; // 🔹 importiamo il context
 
 const DetailMovie = () => {
   const { id } = useParams();
@@ -10,18 +11,24 @@ const DetailMovie = () => {
   const [movie, setMovie] = useState({});
   const [totalMovies, setTotalMovies] = useState(0);
 
+  const { showLoader, hideLoader } = useLoader(); // 🔹 accediamo al loader
+
   const fetchMovie = () => {
+    showLoader(); // mostriamo loader
     axios
       .get(`http://localhost:3000/api/movies/${id}`)
       .then((resp) => setMovie(resp.data))
-      .catch(() => navigate("/not-found", { replace: true }));
+      .catch(() => navigate("/not-found", { replace: true }))
+      .finally(() => hideLoader()); // nascondiamo loader
   };
 
   const fetchTotalMovies = () => {
+    showLoader();
     axios
       .get(`http://localhost:3000/api/movies`)
       .then((resp) => setTotalMovies(resp.data.length))
-      .catch((err) => console.error("Errore nel fetch totale:", err));
+      .catch((err) => console.error("Errore nel fetch totale:", err))
+      .finally(() => hideLoader());
   };
 
   const goNextPage = () => {
